@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Contracts
 {
-    interface IPublisherRepository : IRepositoryBase<Publisher>
+   public interface IPublisherRepository : IRepositoryBase<Publisher>
     {
         ICollection<Publisher> GetPublisher(int Id);
     }

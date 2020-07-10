@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Contracts
 {
-    interface IAuthorRepository : IRepositoryBase<Author>
+  public  interface IAuthorRepository : IRepositoryBase<Author>
     {
         ICollection<Author> GetAuther(int Id);
     }

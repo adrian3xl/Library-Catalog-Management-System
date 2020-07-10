@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Contracts
 {
-    interface IRepositoryBase<T> where T:class
+   public interface IRepositoryBase<T> where T:class
     {
         ICollection<T> Findall();
         T FindById(int id);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Contracts
 {
-    interface ICatalogRepository: IRepositoryBase<Catalog>
+   public interface ICatalogRepository: IRepositoryBase<Catalog>
     {
         ICollection<Catalog> GetCatalog(int Id);
     }

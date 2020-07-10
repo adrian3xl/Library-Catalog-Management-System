@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Contracts
 {
-    interface ILibraryEmployeeRepository : IRepositoryBase<LibraryEmployee>
+   public interface ILibraryEmployeeRepository : IRepositoryBase<LibraryEmployee>
     {
 
         ICollection<LibraryEmployee> GetLibraryEmployees(string Id);
