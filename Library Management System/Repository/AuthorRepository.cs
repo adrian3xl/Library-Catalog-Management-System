@@ -7,9 +7,18 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Repository
 {
+   
+
     public class AuthorRepository : IAuthorRepository
     {
-        public bool Create(Author Entity)
+
+        private readonly ApplicationDbContext _db;
+
+        public AuthorRepository(ApplicationDbContext db)
+        {
+            _db= db;
+        }
+            public bool Create(Author Entity)
         {
             throw new NotImplementedException();
         }
