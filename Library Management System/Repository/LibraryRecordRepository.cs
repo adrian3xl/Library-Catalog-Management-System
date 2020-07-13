@@ -9,6 +9,12 @@ namespace Library_Management_System.Repository
 {
     public class LibraryRecordRepository : ILibraryRecordRepository
     {
+        private readonly ApplicationDbContext _db;
+
+        public LibraryRecordRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
         public bool Create(LibraryRecord Entity)
         {
             throw new NotImplementedException();

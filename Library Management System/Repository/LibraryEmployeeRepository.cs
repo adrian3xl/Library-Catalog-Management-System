@@ -9,6 +9,12 @@ namespace Library_Management_System.Repository
 {
     public class LibraryEmployeeRepository : ILibraryEmployeeRepository
     {
+        private readonly ApplicationDbContext _db;
+
+        public LibraryEmployeeRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
         public bool Create(LibraryEmployee Entity)
         {
             throw new NotImplementedException();

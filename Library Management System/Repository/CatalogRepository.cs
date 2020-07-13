@@ -9,6 +9,13 @@ namespace Library_Management_System.Repository
 {
     public class CatalogRepository : ICatalogRepository
     {
+
+        private readonly ApplicationDbContext _db;
+
+        public CatalogRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
         public bool Create(Catalog Entity)
         {
             throw new NotImplementedException();

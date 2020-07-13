@@ -9,6 +9,14 @@ namespace Library_Management_System.Repository
 {
     public class PublisherRepository : IPublisherRepository
     {
+
+        private readonly ApplicationDbContext _db;
+
+        public PublisherRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         public bool Create(Publisher Entity)
         {
             throw new NotImplementedException();
@@ -35,6 +43,11 @@ namespace Library_Management_System.Repository
         }
 
         public ICollection<Publisher> GetPublisher(string Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<Publisher> GetPublisher(int Id)
         {
             throw new NotImplementedException();
         }
