@@ -20,22 +20,27 @@ namespace Library_Management_System.Repository
         }
             public bool Create(Author Entity)
         {
-            throw new NotImplementedException();
+         _db.Authors.Add(Entity);
+            return Save();
+           
         }
 
         public bool Delete(Author Entity)
         {
-            throw new NotImplementedException();
+           _db.Authors.Remove(Entity);
+            return Save(); 
         }
 
         public ICollection<Author> Findall()
         {
-            throw new NotImplementedException();
+            var Authors=_db.Authors.ToList();
+            return Authors;
         }
 
         public Author FindById(int id)
         {
-            throw new NotImplementedException();
+            var Authors = _db.Authors.Find(id);
+            return Authors;
         }
 
         public ICollection<Author> GetAuther(int Id)
@@ -50,12 +55,14 @@ namespace Library_Management_System.Repository
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var Changes = _db.SaveChanges();
+            return Changes >0;
         }
 
         public bool Update(Author Entity)
         {
-            throw new NotImplementedException();
+            _db.Authors.Update(Entity);
+            return Save();
         }
     }
 }
