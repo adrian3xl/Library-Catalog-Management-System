@@ -17,22 +17,26 @@ namespace Library_Management_System.Repository
         }
         public bool Create(LibraryEmployee Entity)
         {
-            throw new NotImplementedException();
+            _db.LibraryEmployees.Add(Entity);
+            return Save();
         }
 
         public bool Delete(LibraryEmployee Entity)
         {
-            throw new NotImplementedException();
+            _db.LibraryEmployees.Remove(Entity);
+            return Save();
         }
 
         public ICollection<LibraryEmployee> Findall()
         {
-            throw new NotImplementedException();
+            var LibraryEmployees = _db.LibraryEmployees.ToList();
+            return LibraryEmployees;
         }
 
         public LibraryEmployee FindById(int id)
         {
-            throw new NotImplementedException();
+            var LibraryEmployees = _db.LibraryEmployees.Find(id);
+            return LibraryEmployees;
         }
 
         public ICollection<LibraryEmployee> GetLibraryEmployees(string Id)
@@ -42,12 +46,14 @@ namespace Library_Management_System.Repository
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var Changes = _db.SaveChanges();
+            return Changes > 0;
         }
 
         public bool Update(LibraryEmployee Entity)
         {
-            throw new NotImplementedException();
+            _db.LibraryEmployees.Update(Entity);
+            return Save();
         }
     }
 }

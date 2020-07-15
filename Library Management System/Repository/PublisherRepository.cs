@@ -19,30 +19,29 @@ namespace Library_Management_System.Repository
 
         public bool Create(Publisher Entity)
         {
-            throw new NotImplementedException();
+            _db.Publishers.Add(Entity);
+            return Save();
         }
 
         public bool Delete(Publisher Entity)
         {
-            throw new NotImplementedException();
+            _db.Publishers.Remove(Entity);
+            return Save();
         }
 
         public ICollection<Publisher> Findall()
         {
-            throw new NotImplementedException();
+            var Publishers = _db.Publishers.ToList();
+            return Publishers;
         }
 
         public Publisher FindById(int id)
         {
-            throw new NotImplementedException();
+            var Publishers = _db.Publishers.Find(id);
+            return Publishers;
         }
 
         public ICollection<Publisher> GetLibraryEmployees(string Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<Publisher> GetPublisher(string Id)
         {
             throw new NotImplementedException();
         }
@@ -54,12 +53,14 @@ namespace Library_Management_System.Repository
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var Changes = _db.SaveChanges();
+            return Changes > 0;
         }
 
         public bool Update(Publisher Entity)
         {
-            throw new NotImplementedException();
+            _db.Publishers.Update(Entity);
+            return Save();
         }
     }
 }

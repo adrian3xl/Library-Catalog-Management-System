@@ -18,22 +18,26 @@ namespace Library_Management_System.Repository
         }
         public bool Create(Catalog Entity)
         {
-            throw new NotImplementedException();
+            _db.Catalogs.Add(Entity);
+            return Save();
         }
 
         public bool Delete(Catalog Entity)
         {
-            throw new NotImplementedException();
+            _db.Catalogs.Remove(Entity);
+            return Save();
         }
 
         public ICollection<Catalog> Findall()
         {
-            throw new NotImplementedException();
+            var Catalogs = _db.Catalogs.ToList();
+            return Catalogs;
         }
 
         public Catalog FindById(int id)
         {
-            throw new NotImplementedException();
+            var Catalogs = _db.Catalogs.Find(id);
+            return Catalogs;
         }
 
         public ICollection<Catalog> GetCatalog(int Id)
@@ -43,12 +47,14 @@ namespace Library_Management_System.Repository
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var Changes = _db.SaveChanges();
+            return Changes > 0;
         }
 
         public bool Update(Catalog Entity)
         {
-            throw new NotImplementedException();
+            _db.Catalogs.Update(Entity);
+            return Save();
         }
     }
 }
