@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Library_Management_System.Models;
 
 namespace Library_Management_System.Data
 {
@@ -18,6 +19,7 @@ namespace Library_Management_System.Data
         public DbSet<LibraryRecord> LibraryRecords { get; set; }
         public DbSet<LibraryEmployee> LibraryEmployees { get; set; }
         public DbSet<Catalog> Catalogs { get; set; }
+        public DbSet<Library_Management_System.Models.AuthorVM> AuthorVM { get; set; }
 
 
     }

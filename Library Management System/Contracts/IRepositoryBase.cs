@@ -7,7 +7,7 @@ namespace Library_Management_System.Contracts
 {
    public interface IRepositoryBase<T> where T:class
     {
-        ICollection<T> Findall();
+        ICollection<T> FindAll();
         T FindById(int id);
 
         bool Create(T Entity);

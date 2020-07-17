@@ -27,7 +27,7 @@ namespace Library_Management_System.Repository
             return Save();
         }
 
-        public ICollection<LibraryEmployee> Findall()
+        public ICollection<LibraryEmployee> FindAll()
         {
             var LibraryEmployees = _db.LibraryEmployees.ToList();
             return LibraryEmployees;

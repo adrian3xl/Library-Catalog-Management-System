@@ -31,7 +31,7 @@ namespace Library_Management_System.Repository
             return Save(); 
         }
 
-        public ICollection<Author> Findall()
+        public ICollection<Author> FindAll()
         {
             var Authors=_db.Authors.ToList();
             return Authors;

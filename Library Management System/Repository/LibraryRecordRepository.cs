@@ -27,7 +27,7 @@ namespace Library_Management_System.Repository
             return Save();
         }
 
-        public ICollection<LibraryRecord> Findall()
+        public ICollection<LibraryRecord> FindAll()
         {
             var LibraryRecords = _db.LibraryRecords.ToList();
             return LibraryRecords;

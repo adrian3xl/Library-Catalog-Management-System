@@ -29,7 +29,7 @@ namespace Library_Management_System.Repository
             return Save();
         }
 
-        public ICollection<Publisher> Findall()
+        public ICollection<Publisher> FindAll()
         {
             var Publishers = _db.Publishers.ToList();
             return Publishers;
