@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Library_Management_System.Repository;
 using Library_Management_System.Contracts;
+using AutoMapper;
+using Library_Management_System.Mappings;
 
 namespace Library_Management_System
 {
@@ -36,7 +38,10 @@ namespace Library_Management_System
             services.AddScoped<IPublisherRepository, PublisherRepository> ();
             services.AddScoped<ILibraryRecordRepository, LibraryRecordRepository> ();
             services.AddScoped<ICatalogRepository, CatalogRepository > ();
-            services.AddScoped<ILibraryEmployeeRepository, LibraryEmployeeRepository> (); 
+            services.AddScoped<ILibraryEmployeeRepository, LibraryEmployeeRepository> ();
+
+            services.AddAutoMapper(typeof(Maps));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
