@@ -20,6 +20,7 @@ namespace Library_Management_System.Data
         public DbSet<LibraryEmployee> LibraryEmployees { get; set; }
         public DbSet<Catalog> Catalogs { get; set; }
         public DbSet<Library_Management_System.Models.AuthorVM> AuthorVM { get; set; }
+        public DbSet<Library_Management_System.Models.PublisherVM> PublisherVM { get; set; }
 
 
     }
