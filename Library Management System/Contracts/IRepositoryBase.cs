@@ -10,9 +10,11 @@ namespace Library_Management_System.Contracts
         ICollection<T> FindAll();
         T FindById(int id);
 
+        bool IsExist(int id);
         bool Create(T Entity);
         bool Delete(T Entity);
         bool Update(T Entity);
+        bool IsExist(string id);
         bool Save();
     }
 }

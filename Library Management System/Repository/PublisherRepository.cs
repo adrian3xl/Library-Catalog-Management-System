@@ -51,6 +51,17 @@ namespace Library_Management_System.Repository
             throw new NotImplementedException();
         }
 
+        public bool IsExist(int id)
+        {
+            var exist = _db.Publishers.Any(q => q.Id == id);
+            return exist;
+        }
+
+        public bool IsExist(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Save()
         {
             var Changes = _db.SaveChanges();
