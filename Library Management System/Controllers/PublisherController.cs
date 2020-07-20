@@ -17,7 +17,7 @@ namespace Library_Management_System.Controllers
         private readonly IMapper _mapper;
 
 
-        PublisherController(IPublisherRepository repo, IMapper mapper)
+        public PublisherController(IPublisherRepository repo, IMapper mapper)
         {
 
             _repo = repo;

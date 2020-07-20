@@ -22,7 +22,7 @@ namespace Library_Management_System.Controllers
         private readonly IMapper _mapper;
 
 
-        LibraryRecordController(ILibraryRecordRepository repo, ILibraryEmployeeRepository libraryEmployeeRepo, IPublisherRepository publisherRepo,IAuthorRepository authorRepo
+        public LibraryRecordController(ILibraryRecordRepository repo, ILibraryEmployeeRepository libraryEmployeeRepo, IPublisherRepository publisherRepo,IAuthorRepository authorRepo
             , ICatalogRepository catalogRepo, IMapper mapper)
         {
 

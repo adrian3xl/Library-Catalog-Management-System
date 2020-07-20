@@ -20,7 +20,7 @@ namespace Library_Management_System.Controllers
         private readonly IMapper _mapper;
         private readonly ICatalogRepository _repo;
 
-        CatalogController(ILibraryRecordRepository libraryRecordRepo,
+        public CatalogController(ILibraryRecordRepository libraryRecordRepo,
             ILibraryEmployeeRepository libraryEmployeeRepo,
             IAuthorRepository authorRepo,
             IPublisherRepository publisherRepo, 

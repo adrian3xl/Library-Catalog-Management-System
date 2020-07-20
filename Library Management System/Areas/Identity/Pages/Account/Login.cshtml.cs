@@ -43,7 +43,9 @@ namespace Library_Management_System.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [EmailAddress]
+             [EmailAddress]
+            //  [DataType(DataType.Text)]
+            //[DataType(DataType.EmailAddress)]
             public string Email { get; set; }
 
             [Required]
@@ -52,6 +54,9 @@ namespace Library_Management_System.Areas.Identity.Pages.Account
 
             [Display(Name = "Remember me?")]
             public bool RememberMe { get; set; }
+
+
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)

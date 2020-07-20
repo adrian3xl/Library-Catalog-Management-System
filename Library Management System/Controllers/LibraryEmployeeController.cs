@@ -17,7 +17,7 @@ namespace Library_Management_System.Controllers
         private readonly IMapper _mapper;
 
 
-        LibraryEmployeeController(ILibraryEmployeeRepository repo, IMapper mapper )
+        public LibraryEmployeeController(ILibraryEmployeeRepository repo, IMapper mapper )
         {
             _repo = repo;
             _mapper = mapper;
