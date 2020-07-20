@@ -8,6 +8,7 @@ using Library_Management_System.Data;
 using Library_Management_System.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Library_Management_System.Controllers
 {
@@ -62,7 +63,29 @@ namespace Library_Management_System.Controllers
         // GET: CatalogController/Create
         public ActionResult Create()
         {
-            return View();
+            var publisher = _publisherRepo.FindAll();
+            var author = _authorRepo.FindAll();
+
+            var authorTypeItems = author.Select(q => new SelectListItem
+            {
+                Text = q.Firstname, qLastname,
+                Value = q.Id.ToString()
+            });
+
+            var publisherTypeItems = publisher.Select(q => new SelectListItem
+            {
+                Text = q.Firstname,
+                q.Lastname,
+                Value = q.Id.ToString()
+            });
+
+            var model = new CatalogVM
+            {
+                publisher = publisherTypeItems,
+                author = authorTypeItems
+
+            };
+            return View(model);
         }
 
         // POST: CatalogController/Create
