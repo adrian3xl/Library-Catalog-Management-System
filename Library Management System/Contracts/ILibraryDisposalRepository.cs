@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Contracts
 {
-    interface ILibraryDisposalRepository : IRepositoryBase<LibraryDisposal>
+  public  interface ILibraryDisposalRepository : IRepositoryBase<LibraryDisposal>
     {
         ICollection<LibraryDisposal> GetLibraryDisposal(int Id);
     }
