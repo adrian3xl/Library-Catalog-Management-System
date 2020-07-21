@@ -4,9 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>CatalogVM</h4>
+<h4>Create Catalog</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -19,13 +19,13 @@
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AuthorId" class="control-label"></label>
-                <input asp-for="AuthorId" class="form-control" />
+                <label asp-for="Author" class="control-label"></label>
+                @Html.DropDownListFor(q => q.AuthorId, new SelectList(Model.Authors, "Value", "Text"), "Select Author's Name", new { @class = "form-control" })
                 <span asp-validation-for="AuthorId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PublisherId" class="control-label"></label>
-                <input asp-for="PublisherId" class="form-control" />
+                <label asp-for="Publisher" class="control-label"></label>
+                @Html.DropDownListFor(q => q.PublisherId, new SelectList(Model.Publishers, "Value", "Text"), "Select Publisher's Name", new { @class = "form-control" })
                 <span asp-validation-for="PublisherId" class="text-danger"></span>
             </div>
             <div class="form-group">
