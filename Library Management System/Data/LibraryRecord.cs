@@ -19,17 +19,20 @@ namespace Library_Management_System.Data
         public string CustomerLastname { get; set; }
         public string CustomerAddress { get; set; }
         public string TaxRegistrationNumber { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public string IssuedBy { get; set; }
+        public string PhoneNumber { get; set; }
 
+
+        public string IssuedBy { get; set; }
         public string ConditionIssued { get; set; }
         public DateTime DateIssued { get; set; }
+        public DateTime DeadlineDate { get; set; }
+
+
+        public string ConditionRecieved { get; set; }
         public string RecievedBy { get; set; }
         public DateTime DateRecieved { get; set; }
-        public string ConditionRecieved { get; set; }
 
-        
-
+        public string  StaffComment { get; set; }
 
     }
 }
