@@ -68,21 +68,21 @@ namespace Library_Management_System.Controllers
 
             var authorTypeItems = author.Select(q => new SelectListItem
             {
-                Text = q.Firstname, qLastname,
+                Text = "$(q.Firstname}{q.Lastname}",
                 Value = q.Id.ToString()
             });
 
             var publisherTypeItems = publisher.Select(q => new SelectListItem
             {
-                Text = q.Firstname,
-                q.Lastname,
+                Text ="$(q.Firstname}{q.Lastname}",
+             
                 Value = q.Id.ToString()
             });
 
             var model = new CatalogVM
             {
-                publisher = publisherTypeItems,
-                author = authorTypeItems
+                Publishers = publisherTypeItems,
+                Authors = authorTypeItems
 
             };
             return View(model);
