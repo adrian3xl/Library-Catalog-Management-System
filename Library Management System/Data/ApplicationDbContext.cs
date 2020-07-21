@@ -20,7 +20,7 @@ namespace Library_Management_System.Data
         public DbSet<LibraryEmployee> LibraryEmployees { get; set; }
         public DbSet<Catalog> Catalogs { get; set; }
 
-        public DbSet<CatalogType> CatalogType { get; set; }
+        public DbSet<CatalogType> CatalogTypes { get; set; }
         public DbSet<LibraryDisposal> LibraryDisposals { get; set; }
         public DbSet<Genre> Genres { get; set; }
 

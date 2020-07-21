@@ -9,24 +9,36 @@ namespace Library_Management_System.Repository
 {
     public class LibraryDisposalRepository : ILibraryDisposalRepository
     {
+
+        private readonly ApplicationDbContext _db;
+
+        public LibraryDisposalRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         public bool Create(LibraryDisposal Entity)
         {
-            throw new NotImplementedException();
+            _db.LibraryDisposals.Add(Entity);
+            return Save();
         }
 
         public bool Delete(LibraryDisposal Entity)
         {
-            throw new NotImplementedException();
+            _db.LibraryDisposals.Remove(Entity);
+            return Save();
         }
 
         public ICollection<LibraryDisposal> FindAll()
         {
-            throw new NotImplementedException();
+            var LibraryDisposals = _db.LibraryDisposals.ToList();
+            return LibraryDisposals;
         }
 
         public LibraryDisposal FindById(int id)
         {
-            throw new NotImplementedException();
+            var LibraryDisposals = _db.LibraryDisposals.Find(id);
+            return LibraryDisposals;
         }
 
         public ICollection<LibraryDisposal> GetLibraryDisposal(int Id)
@@ -36,7 +48,8 @@ namespace Library_Management_System.Repository
 
         public bool IsExist(int id)
         {
-            throw new NotImplementedException();
+            var exist = _db.LibraryDisposals.Any(q => q.Id == id);
+            return exist;
         }
 
         public bool IsExist(string id)
@@ -46,12 +59,14 @@ namespace Library_Management_System.Repository
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var Changes = _db.SaveChanges();
+            return Changes > 0;
         }
 
         public bool Update(LibraryDisposal Entity)
         {
-            throw new NotImplementedException();
+            _db.LibraryDisposals.Update(Entity);
+            return Save();
         }
     }
 }

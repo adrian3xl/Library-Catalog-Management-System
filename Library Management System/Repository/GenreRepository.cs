@@ -9,24 +9,35 @@ namespace Library_Management_System.Repository
 {
     public class GenreRepository : IGenreRepository
     {
+        private readonly ApplicationDbContext _db;
+
+        public GenreRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         public bool Create(Genre Entity)
         {
-            throw new NotImplementedException();
+            _db.Genres.Add(Entity);
+            return Save();
         }
 
         public bool Delete(Genre Entity)
         {
-            throw new NotImplementedException();
+            _db.Genres.Remove(Entity);
+            return Save();
         }
 
         public ICollection<Genre> FindAll()
         {
-            throw new NotImplementedException();
+            var Genres = _db.Genres.ToList();
+            return Genres;
         }
 
         public Genre FindById(int id)
         {
-            throw new NotImplementedException();
+            var Genres = _db.Genres.Find(id);
+            return Genres;
         }
 
         public ICollection<Genre> GetAuther(int Id)
@@ -41,7 +52,8 @@ namespace Library_Management_System.Repository
 
         public bool IsExist(int id)
         {
-            throw new NotImplementedException();
+            var exist = _db.Genres.Any(q => q.Id == id);
+            return exist;
         }
 
         public bool IsExist(string id)
@@ -51,12 +63,14 @@ namespace Library_Management_System.Repository
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var Changes = _db.SaveChanges();
+            return Changes > 0;
         }
 
         public bool Update(Genre Entity)
         {
-            throw new NotImplementedException();
+            _db.Genres.Update(Entity);
+            return Save();
         }
     }
 }
