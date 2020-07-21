@@ -10,6 +10,7 @@ namespace Library_Management_System.Models
     public class LibraryRecordVM
     {
         public int Id { get; set; }
+       
         [Required]
         public CatalogVM Catalog { get; set; }
         public int CatalogId { get; set; }
@@ -22,8 +23,8 @@ namespace Library_Management_System.Models
         public string CustomerAddress { get; set; }
         [Required]
         public string TaxRegistrationNumber { get; set; }
-        [Required]
-        public DateTime DateOfBirth { get; set; }
+      
+        public string PhoneNumber { get; set; }
 
         [Required]
         public string IssuedBy { get; set; }
@@ -32,11 +33,17 @@ namespace Library_Management_System.Models
         [Required]
         public DateTime DateIssued { get; set; }
         [Required]
+        public DateTime DeadlineDate { get; set; }
+
+        [Required]
+        public string ConditionRecieved { get; set; }
+        [Required]
         public string RecievedBy { get; set; }
         [Required]
         public DateTime DateRecieved { get; set; }
-        [Required]
-        public string ConditionRecieved { get; set; }
+
+        public string StaffComment { get; set; }
+
 
         public IEnumerable<SelectListItem> Catalogs { get; set; }
     }

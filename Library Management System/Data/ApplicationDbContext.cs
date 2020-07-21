@@ -19,8 +19,12 @@ namespace Library_Management_System.Data
         public DbSet<LibraryRecord> LibraryRecords { get; set; }
         public DbSet<LibraryEmployee> LibraryEmployees { get; set; }
         public DbSet<Catalog> Catalogs { get; set; }
-        public DbSet<Library_Management_System.Models.AuthorVM> AuthorVM { get; set; }
-        public DbSet<Library_Management_System.Models.PublisherVM> PublisherVM { get; set; }
+
+        public DbSet<CatalogType> CatalogType { get; set; }
+        public DbSet<LibraryDisposal> LibraryDisposals { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+
+
 
 
     }

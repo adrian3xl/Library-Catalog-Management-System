@@ -12,17 +12,22 @@ namespace Library_Management_System.Models
 
         public string Title { get; set; }
 
+        
         public AuthorVM Author { get; set; }
         public int AuthorId { get; set; }
 
+       
         public PublisherVM Publisher { get; set; }
         public int PublisherId { get; set; }
 
-        public string Type { get; set; }
+        public CatalogTypeVM CatalogType { get; set; }
+        public string CatalogTypeId { get; set; }
 
-        public string Genre { get; set; }
+        public GenreVM Genre { get; set; }
+        public string GenreId { get; set; }
+
         public string UniqueCatalogCode { get; set; }
-
+        public DateTime PublishedDate { get; set; }
         public string CurrentCondition { get; set; }
 
 

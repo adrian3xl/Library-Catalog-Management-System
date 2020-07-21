@@ -12,5 +12,7 @@ namespace Library_Management_System.Data
         public string Lastname { get; set; }
         public string Position { get; set; }
 
+        public string StaffIdentificationCode { get; set; }
+
     }
 }

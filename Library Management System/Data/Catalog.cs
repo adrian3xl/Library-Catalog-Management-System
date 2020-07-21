@@ -22,10 +22,14 @@ namespace Library_Management_System.Data
         public Publisher Publisher { get; set; }
         public int PublisherId { get; set; }
 
-        public string Type { get; set; }
+        public CatalogType CatalogType { get; set; }
+        public string CatalogTypeId { get; set; }
 
-        public string Genre { get; set; }
+        public Genre Genre { get; set; }
+        public string GenreId { get; set; }
+
         public string UniqueCatalogCode { get; set; }
+        public DateTime PublishedDate  { get; set; }
         public string CurrentCondition { get; set; }
 
         

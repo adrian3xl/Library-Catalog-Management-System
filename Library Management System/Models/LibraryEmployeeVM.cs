@@ -14,5 +14,7 @@ namespace Library_Management_System.Models
         public string Lastname { get; set; }
         [Required]
         public string Position { get; set; }
+        [Required]
+        public string StaffIdentificationCode { get; set; }
     }
 }

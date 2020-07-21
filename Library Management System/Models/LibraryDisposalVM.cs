@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Library_Management_System.Data
+namespace Library_Management_System.Models
 {
-    public class LibraryDisposal
+    public class LibraryDisposalVM
     {
-        [Key]
         public int Id { get; set; }
 
         public string DisposalCode { get; set; }
@@ -17,6 +15,5 @@ namespace Library_Management_System.Data
         public string Reason { get; set; }
         public string MethodOfDisposal { get; set; }
         public DateTime DateOfDisposal { get; set; }
-
     }
 }

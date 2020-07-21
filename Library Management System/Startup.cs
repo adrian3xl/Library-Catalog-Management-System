@@ -39,6 +39,10 @@ namespace Library_Management_System
             services.AddScoped<ILibraryRecordRepository, LibraryRecordRepository> ();
             services.AddScoped<ICatalogRepository, CatalogRepository > ();
             services.AddScoped<ILibraryEmployeeRepository, LibraryEmployeeRepository> ();
+            services.AddScoped<ILibraryDisposalRepository, LibraryDisposalRepository>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<ICatalogTypeRepository, CatalogTypeRepository>();
+
 
             services.AddAutoMapper(typeof(Maps));
 
