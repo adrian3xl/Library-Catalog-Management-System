@@ -33,6 +33,8 @@ namespace Library_Management_System.Models
 
         public IEnumerable<SelectListItem> Authors { get; set; }
         public IEnumerable<SelectListItem> Publishers { get; set; }
+        public IEnumerable<SelectListItem> Genres { get; set; }
+        public IEnumerable<SelectListItem> CatalogTypes{ get; set; }
 
     }
 }
