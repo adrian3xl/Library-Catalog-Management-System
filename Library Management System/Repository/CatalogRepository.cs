@@ -32,8 +32,10 @@ namespace Library_Management_System.Repository
         public ICollection<Catalog> FindAll()
         {
             var Catalogs = _db.Catalogs
-                .Include(q=>q.Author)
+               .Include(q => q.Author)
                 .Include(q => q.Publisher)
+                .Include(q => q.CatalogType)
+                .Include(q => q.Genre)
                 .ToList();
             return Catalogs;
         }
@@ -43,6 +45,8 @@ namespace Library_Management_System.Repository
             var Catalogs = _db.Catalogs
                 .Include(q => q.Author)
                 .Include(q => q.Publisher)
+                .Include(q => q.CatalogType)
+                .Include(q => q.Genre)
                 .FirstOrDefault(q => q.Id == id);
             return Catalogs;
         }

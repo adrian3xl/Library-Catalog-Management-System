@@ -11,51 +11,51 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Library_Management_System.Controllers
 {
-    public class AuthorController : Controller
+    public class GenreController : Controller
     {
-        private readonly IAuthorRepository _repo;
+        private readonly IGenreRepository _repo;
         private readonly IMapper _mapper;
-
-
-        public AuthorController(IAuthorRepository repo, IMapper mapper)
+       
+        public GenreController(IGenreRepository repo, IMapper mapper)
         {
 
             _repo = repo;
             _mapper = mapper;
-        }
+         }
 
-        // GET: AuthorController
+        
+        // GET: Genre
+
         public ActionResult Index()
         {
-            var Authors = _repo.FindAll().ToList();
-            var model = _mapper.Map<List<Author>, List<AuthorVM>>(Authors);
+            var Genres = _repo.FindAll().ToList();
+            var model = _mapper.Map<List<Genre>, List<GenreVM>>(Genres);
             return View(model);
         }
 
-        // GET: AuthorController/Details/5
+        // GET: Genre/Details/5
         public ActionResult Details(int id)
         {
             if (!_repo.IsExist(id))
             {
                 return NotFound();
             }
-            var author = _repo.FindById(id);
-            var model = _mapper.Map<AuthorVM>(author);
+            var genre = _repo.FindById(id);
+            var model = _mapper.Map<GenreVM>(genre);
             return View(model);
         }
 
-        // GET: AuthorController/Create
+        // GET: Genre/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: AuthorController/Create
+        // POST: Genre/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AuthorVM model)
+        public ActionResult Create(GenreVM model)
         {
-
             try
             {
                 if (!ModelState.IsValid)
@@ -63,10 +63,10 @@ namespace Library_Management_System.Controllers
                     return View(model);
                 }
 
-               
 
-                var author = _mapper.Map<Author>(model);
-                var isSucess = _repo.Create(author);
+
+                var Genre = _mapper.Map<Genre>(model);
+                var isSucess = _repo.Create(Genre);
 
                 if (!isSucess)
                 {
@@ -87,22 +87,22 @@ namespace Library_Management_System.Controllers
 
         }
 
-        // GET: AuthorController/Edit/5
+        // GET: Genre/Edit/5
         public ActionResult Edit(int id)
         {
             if (!_repo.IsExist(id))
             {
                 return NotFound();
             }
-            var author = _repo.FindById(id);
-            var model = _mapper.Map<AuthorVM>(author);
+            var Genre = _repo.FindById(id);
+            var model = _mapper.Map<GenreVM>(Genre);
             return View(model);
         }
 
-        // POST: AuthorController/Edit/5
+        // POST: Genre/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(AuthorVM model)
+        public ActionResult Edit(int id, GenreVM model)
         {
             try
             {
@@ -110,7 +110,7 @@ namespace Library_Management_System.Controllers
                 {
                     return View(model);
                 }
-                var author = _mapper.Map<Author>(model);
+                var author = _mapper.Map<Genre>(model);
                 var isSucess = _repo.Update(author);
                 if (!isSucess)
                 {
@@ -127,15 +127,15 @@ namespace Library_Management_System.Controllers
             }
         }
 
-        // GET: AuthorController/Delete/5
+        // GET: Genre/Delete/5
         public ActionResult Delete(int id)
         {
-            var author = _repo.FindById(id);
-            if (author == null)
+            var Genre = _repo.FindById(id);
+            if (Genre == null)
             {
                 return NotFound();
             }
-            var isSucess = _repo.Delete(author);
+            var isSucess = _repo.Delete(Genre);
             if (!isSucess)
             {
 
@@ -145,20 +145,19 @@ namespace Library_Management_System.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
-        // POST: AuthorController/Delete/5
+        // POST: Genre/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, AuthorVM model)
+        public ActionResult Delete(int id, GenreVM model)
         {
             try
             {
-                var author = _repo.FindById(id);
-                if (author == null)
+                var Genre = _repo.FindById(id);
+                if (Genre == null)
                 {
                     return NotFound();
                 }
-                var isSucess = _repo.Delete(author);
+                var isSucess = _repo.Delete(Genre);
                 if (!isSucess)
                 {
 
@@ -175,5 +174,3 @@ namespace Library_Management_System.Controllers
         }
     }
 }
-    
-

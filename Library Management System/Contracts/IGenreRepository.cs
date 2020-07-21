@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Contracts
 {
-    interface IGenreRepository: IRepositoryBase<Genre>
+   public interface IGenreRepository: IRepositoryBase<Genre>
     {
         ICollection<Genre> GetGenre(int Id);
     }
