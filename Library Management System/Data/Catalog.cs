@@ -24,11 +24,11 @@ namespace Library_Management_System.Data
 
         [ForeignKey("CatalogTypeId")]
         public CatalogType CatalogType { get; set; }
-        public string CatalogTypeId { get; set; }
+        public int CatalogTypeId { get; set; }
 
         [ForeignKey("GenreId")]
         public Genre Genre { get; set; }
-        public string GenreId { get; set; }
+        public int GenreId { get; set; }
 
         public string UniqueCatalogCode { get; set; }
         public DateTime PublishedDate  { get; set; }
