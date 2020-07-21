@@ -17,6 +17,10 @@ namespace Library_Management_System.Mappings
             CreateMap<LibraryRecord, LibraryRecordVM>().ReverseMap();
             CreateMap<LibraryEmployee, LibraryEmployeeVM>().ReverseMap();
             CreateMap<Catalog, CatalogVM>().ReverseMap();
+            CreateMap<CatalogType, CatalogTypeVM>().ReverseMap();
+            CreateMap<Genre, GenreVM>().ReverseMap();
+            CreateMap<LibraryDisposal, LibraryDisposalVM>().ReverseMap();
+
         }
     }
 }

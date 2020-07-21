@@ -22,9 +22,11 @@ namespace Library_Management_System.Data
         public Publisher Publisher { get; set; }
         public int PublisherId { get; set; }
 
+        [ForeignKey("CatalogTypeId")]
         public CatalogType CatalogType { get; set; }
         public string CatalogTypeId { get; set; }
 
+        [ForeignKey("GenreId")]
         public Genre Genre { get; set; }
         public string GenreId { get; set; }
 
