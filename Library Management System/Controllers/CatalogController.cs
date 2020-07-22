@@ -76,6 +76,8 @@ namespace Library_Management_System.Controllers
         {
             var publisher = _publisherRepo.FindAll();
             var author = _authorRepo.FindAll();
+            var genre = _Genrerepo.FindAll();
+            var catalogtype = _CatalogTyperepo.FindAll();
 
             var authorTypeItems = author.Select(q => new SelectListItem
             {
@@ -90,11 +92,27 @@ namespace Library_Management_System.Controllers
                 Value = q.Id.ToString()
             });
 
+            var GenreTypeItems= genre.Select(q => new SelectListItem
+            {
+                Text = $"{q.Name}",
+
+                Value = q.Id.ToString()
+            });
+
+            var catalogtypeTypeItems = genre.Select(q => new SelectListItem
+            {
+                Text = $"{q.Name}",
+
+                Value = q.Id.ToString()
+            });
+
+
             var model = new CatalogVM
             {
                 Publishers = publisherTypeItems,
-                Authors = authorTypeItems
-
+                Authors = authorTypeItems,
+                Genres= GenreTypeItems,
+                CatalogTypes= catalogtypeTypeItems
             };
             return View(model);
         }
