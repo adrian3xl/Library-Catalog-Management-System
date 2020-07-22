@@ -20,6 +20,8 @@ namespace Library_Management_System.Controllers
         private readonly IAuthorRepository _authorRepo;
         private readonly IPublisherRepository _publisherRepo;
         private readonly ICatalogRepository _catalogRepo;
+       // private readonly ICatalogRepository _;
+
         private readonly IMapper _mapper;
 
 
