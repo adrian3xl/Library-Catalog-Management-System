@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,11 +10,28 @@ namespace Library_Management_System.Models
     {
         public int Id { get; set; }
 
+        
+        [Display(Name = "Disposal Code")]
+        [Required]
         public string DisposalCode { get; set; }
-        public string Name { get; set; }
 
+        [Required]
+       
+        public string Name { get; set; }
+        [Required]
+        
         public string Reason { get; set; }
+      
+        
+        [Display(Name = "Method Of Disposal")]
+        [Required]
         public string MethodOfDisposal { get; set; }
+
+        [Display(Name = " Date Of Disposal")]
+        [Required]
+
+        [DataType(DataType.Date)]
+        
         public DateTime DateOfDisposal { get; set; }
     }
 }
