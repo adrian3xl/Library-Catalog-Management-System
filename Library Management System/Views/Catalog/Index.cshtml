@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>View Catalog</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -12,12 +12,11 @@
 <table class="table">
     <thead>
         <tr>
-            
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Author)
+                @Html.DisplayNameFor(model => model.AuthorId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PublisherId)
@@ -26,10 +25,13 @@
                 @Html.DisplayNameFor(model => model.CatalogTypeId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Genre)
+                @Html.DisplayNameFor(model => model.GenreId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.UniqueCatalogCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublishedDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CurrentCondition)
@@ -40,7 +42,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            
+           
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -51,13 +53,16 @@
                 @Html.DisplayFor(modelItem => item.Publisher.Firstname)@Html.DisplayFor(modelItem => item.Publisher.Lastname)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CatalogType)
+                @Html.DisplayFor(modelItem => item.CatalogTypeId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Genre)
+                @Html.DisplayFor(modelItem => item.GenreId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UniqueCatalogCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishedDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CurrentCondition)
