@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Library_Management_System.Models.LibraryRecordVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Library Record Listing </h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.CatalogId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerFirstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerLastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxRegistrationNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssuedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConditionIssued)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateIssued)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeadlineDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConditionRecieved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecievedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateRecieved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffComment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>      
+            <td>
+                @Html.DisplayFor(modelItem => item.CatalogId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerFirstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerLastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxRegistrationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssuedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConditionIssued)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateIssued)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeadlineDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConditionRecieved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecievedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRecieved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffComment)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
