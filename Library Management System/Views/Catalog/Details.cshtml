@@ -4,10 +4,10 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+
 
 <div>
-    <h4>CatalogVM</h4>
+    <h4>Details of Catalog</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -28,23 +28,23 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Author.Firstname)@Html.DisplayFor(model => model.Author.Lastname)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PublisherId)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PublisherId)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Publisher.Firstname)@Html.DisplayFor(model => model.Publisher.Lastname)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CatalogTypeId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CatalogTypeId)
+            @Html.DisplayFor(model => model.CatalogType.Name)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.GenreId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GenreId)
+            @Html.DisplayFor(model => model.Genre.Name)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.UniqueCatalogCode)
