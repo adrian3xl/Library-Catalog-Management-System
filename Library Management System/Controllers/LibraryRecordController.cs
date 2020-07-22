@@ -8,6 +8,7 @@ using Library_Management_System.Data;
 using Library_Management_System.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Library_Management_System.Controllers
 {
@@ -59,7 +60,22 @@ namespace Library_Management_System.Controllers
         // GET: LibraryRecordController/Create
         public ActionResult Create()
         {
-            return View();
+            var catalog = _catalogRepo.FindAll();
+
+            var catalogTypeItems = catalog.Select(q => new SelectListItem
+            {
+                Text = $"{q.Title}",
+
+                Value = q.Id.ToString()
+            });
+
+
+            var model = new LibraryRecordVM
+            {
+                
+                Catalogs= catalogTypeItems
+            };
+            return View(model);
         }
 
         // POST: LibraryRecordController/Create
@@ -67,6 +83,8 @@ namespace Library_Management_System.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(LibraryRecordVM model)
         {
+
+
             try
             {
                 if (!ModelState.IsValid)
