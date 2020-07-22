@@ -99,7 +99,7 @@ namespace Library_Management_System.Controllers
                 Value = q.Id.ToString()
             });
 
-            var catalogtypeTypeItems = genre.Select(q => new SelectListItem
+            var catalogtypeTypeItems = catalogtype.Select(q => new SelectListItem
             {
                 Text = $"{q.Name}",
 
