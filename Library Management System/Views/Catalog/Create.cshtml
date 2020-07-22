@@ -31,11 +31,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="CatalogTypeId" class="control-label"></label>
-                <input asp-for="CatalogTypeId" class="form-control" />
+                @Html.DropDownListFor(q => q.CatalogTypeId, new SelectList(Model.CatalogTypes, "Value", "Text"), "Select Publisher's Name", new { @class = "form-control" })
                 <span asp-validation-for="CatalogTypeId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="GenreId" class="control-label"></label>
+                @Html.DropDownListFor(q => q.GenreId, new SelectList(Model.Genres, "Value", "Text"), "Select Publisher's Name", new { @class = "form-control" })
                 <input asp-for="GenreId" class="form-control" />
                 <span asp-validation-for="GenreId" class="text-danger"></span>
             </div>

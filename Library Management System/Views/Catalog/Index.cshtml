@@ -53,10 +53,10 @@
                 @Html.DisplayFor(modelItem => item.Publisher.Firstname)@Html.DisplayFor(modelItem => item.Publisher.Lastname)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CatalogTypeId)
+                @Html.DisplayFor(modelItem => item.CatalogType.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GenreId)
+                @Html.DisplayFor(modelItem => item.Genre.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UniqueCatalogCode)
