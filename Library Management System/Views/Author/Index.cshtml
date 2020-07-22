@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Author Listing</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create New</a>
 </p>
 <table id="tblData" class="table">
     <thead>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.UniqueAuthorCode)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <a asp-action="Details" class="btn btn-secondary" asp-route-id="@item.Id"><i class="fa fa-book" aria-hidden="true"></i></a>
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id" onclick="return confirm('Are you sure you that you want to delete this resume')"><i class="fa fa-trash" aria-hidden="true"></i></a>
             </td>
         </tr>
 }
