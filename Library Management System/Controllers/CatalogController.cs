@@ -20,12 +20,20 @@ namespace Library_Management_System.Controllers
         private readonly IPublisherRepository _publisherRepo;
         private readonly IMapper _mapper;
         private readonly ICatalogRepository _repo;
+        private readonly ICatalogTypeRepository _CatalogTyperepo;
+        private readonly IGenreRepository _Genrerepo;
+        private readonly ILibraryDisposalRepository _LibraryDisposalrepo;
+
+
 
         public CatalogController(ILibraryRecordRepository libraryRecordRepo,
             ILibraryEmployeeRepository libraryEmployeeRepo,
             IAuthorRepository authorRepo,
             IPublisherRepository publisherRepo, 
             ICatalogRepository repo,
+            ILibraryDisposalRepository LibraryDisposalrepo,
+            IGenreRepository Genrerepo,
+            ICatalogTypeRepository CatalogTyperepo,
             IMapper mapper)
       
         {
@@ -34,6 +42,9 @@ namespace Library_Management_System.Controllers
             _libraryEmployeeRepo = libraryEmployeeRepo;
             _authorRepo = authorRepo;
             _publisherRepo = publisherRepo;
+            _LibraryDisposalrepo = LibraryDisposalrepo;
+            _Genrerepo = Genrerepo;
+            _CatalogTyperepo = CatalogTyperepo;
             _mapper = mapper;
 
         } 
