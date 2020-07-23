@@ -96,12 +96,15 @@ namespace Library_Management_System.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                
                 var user = new LibraryEmployee { UserName = Input.StaffIdentificationCode, Email = Input.Email,Firstname=Input.Firstname, Lastname=Input.Lastname , Position=Input.Position,StaffIdentificationCode=Input.StaffIdentificationCode };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                   
-                        await _signInManager.SignInAsync(user, isPersistent: false);
+                    _userManager.AddToRoleAsync(user, "LibraryEmployee").Wait();
+                    _logger.LogInformation("User created a new account with password");
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);
                     
                 }

@@ -6,11 +6,13 @@ using AutoMapper;
 using Library_Management_System.Contracts;
 using Library_Management_System.Data;
 using Library_Management_System.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library_Management_System.Controllers
 {
+    [Authorize]
     public class CatalogTypeController : Controller
     {
         private readonly ICatalogTypeRepository _repo;

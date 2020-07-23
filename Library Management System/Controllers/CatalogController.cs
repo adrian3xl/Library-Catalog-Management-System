@@ -6,12 +6,14 @@ using AutoMapper;
 using Library_Management_System.Contracts;
 using Library_Management_System.Data;
 using Library_Management_System.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Library_Management_System.Controllers
 {
+    [Authorize]
     public class CatalogController : Controller
     {
         private readonly ILibraryRecordRepository _libraryRecordRepo;
