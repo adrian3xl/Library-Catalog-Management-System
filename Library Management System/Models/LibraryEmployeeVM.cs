@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace Library_Management_System.Models
         public string Position { get; set; }
         [Required]
         public string StaffIdentificationCode { get; set; }
+
     }
 }

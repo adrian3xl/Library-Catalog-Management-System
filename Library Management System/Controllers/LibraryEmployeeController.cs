@@ -7,6 +7,7 @@ using Library_Management_System.Contracts;
 using Library_Management_System.Data;
 using Library_Management_System.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library_Management_System.Controllers
@@ -15,12 +16,13 @@ namespace Library_Management_System.Controllers
     {
         private readonly ILibraryEmployeeRepository _repo;
         private readonly IMapper _mapper;
-
+       
 
         public LibraryEmployeeController(ILibraryEmployeeRepository repo, IMapper mapper )
         {
             _repo = repo;
             _mapper = mapper;
+            
         }
 
         // GET: LibraryEmployeeController
@@ -60,6 +62,7 @@ namespace Library_Management_System.Controllers
                 {
                     return View(model);
                 }
+            
 
                 var libraryEmployee = _mapper.Map<LibraryEmployee>(model);
                 var isSucess = _repo.Create(libraryEmployee);
