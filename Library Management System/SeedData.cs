@@ -53,9 +53,7 @@ namespace Library_Management_System
                 {
                     Name = "LibraryEmployee"
                 };
-                // var result =
-                roleManager.CreateAsync(role);
-                    //.Result;
+                 var result =roleManager.CreateAsync(role).Result;
             }
         }
     }

@@ -79,6 +79,9 @@ namespace Library_Management_System
             app.UseAuthentication();
             app.UseAuthorization();
 
+
+            SeedData.Seed(userManager, roleManager);
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
