@@ -1,7 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Library_Management_System.Data
-@inject SignInManager<LibraryEmployee> SignInManager
-@inject UserManager<LibraryEmployee> UserManager
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +47,21 @@
                                         <a class="dropdown-item" asp-controller="LibraryRecord" asp-action="Index">Library Records</a>
                                         <a class="dropdown-item" asp-controller="LibraryDisposal" asp-action="Index">LibraryDisposals</a>
 
+                                    </div>
+                                </li>
+                            }
+                        }
+
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            if (User.IsInRole("Administrator"))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Administrator Tools
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" asp-controller="LibraryEmployee" asp-action="Index">Manage Employee Access</a>
                                     </div>
                                 </li>
                             }
