@@ -77,6 +77,11 @@ namespace Library_Management_System.Areas.Identity.Pages.Account
             [Display(Name = "Position Name")]
             public string Position { get; set; }
 
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Staff Identification Code")]
+            public string StaffIdentificationCode { get; set; }
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -91,7 +96,7 @@ namespace Library_Management_System.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new LibraryEmployee { UserName = Input.Firstname, Email = Input.Email,Firstname=Input.Firstname, Lastname=Input.Lastname , Position=Input.Position };
+                var user = new LibraryEmployee { UserName = Input.StaffIdentificationCode, Email = Input.Email,Firstname=Input.Firstname, Lastname=Input.Lastname , Position=Input.Position,StaffIdentificationCode=Input.StaffIdentificationCode };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
