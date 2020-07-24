@@ -1,5 +1,6 @@
 ﻿using Library_Management_System.Contracts;
 using Library_Management_System.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,13 +30,17 @@ namespace Library_Management_System.Repository
 
         public ICollection<LibraryRecord> FindAll()
         {
-            var LibraryRecords = _db.LibraryRecords.ToList();
+            var LibraryRecords = _db.LibraryRecords
+                .Include(q => q.Catalog)
+                .ToList();
             return LibraryRecords;
         }
 
         public LibraryRecord FindById(int id)
         {
-            var LibraryRecords = _db.LibraryRecords.Find(id);
+            var LibraryRecords = _db.LibraryRecords
+                .Include(q => q.Catalog)
+                .FirstOrDefault( q=> q.Id == id);
             return LibraryRecords;
         }
 

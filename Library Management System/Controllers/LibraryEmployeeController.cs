@@ -16,20 +16,24 @@ namespace Library_Management_System.Controllers
     {
         private readonly ILibraryEmployeeRepository _repo;
         private readonly IMapper _mapper;
-       
+        private readonly UserManager<LibraryEmployee> _userManager;
 
-        public LibraryEmployeeController(ILibraryEmployeeRepository repo, IMapper mapper )
+        public LibraryEmployeeController(ILibraryEmployeeRepository repo, IMapper mapper, UserManager<LibraryEmployee> userManager)
         {
             _repo = repo;
             _mapper = mapper;
-            
+            _userManager = userManager;
         }
+
+
+     
 
         // GET: LibraryEmployeeController
         public ActionResult Index()
         {
             var libraryEmployee = _repo.FindAll().ToList();
             var model = _mapper.Map<List<LibraryEmployee>, List<LibraryEmployeeVM>>(libraryEmployee);
+
             return View(model);
         }
 

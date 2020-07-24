@@ -128,6 +128,17 @@ namespace Library_Management_System.Controllers
 
             var libraryRecord = _repo.FindById(id);
             var model = _mapper.Map<LibraryRecordVM>(libraryRecord);
+            var catalog = _catalogRepo.FindAll();
+
+            var catalogTypeItems = catalog.Select(q => new SelectListItem
+            {
+                Text = $"{q.Title}",
+
+                Value = q.Id.ToString()
+            });
+
+
+            model.Catalogs = catalogTypeItems;
             return View(model);
         }
 
