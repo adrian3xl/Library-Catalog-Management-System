@@ -159,8 +159,51 @@ namespace Library_Management_System.Controllers
             {
                 return NotFound();
             }
+
             var catalog= _repo.FindById(id);
             var model = _mapper.Map<CatalogVM>(catalog);
+
+
+            var publisher = _publisherRepo.FindAll();
+            var author = _authorRepo.FindAll();
+            var genre = _Genrerepo.FindAll();
+            var catalogtype = _CatalogTyperepo.FindAll();
+
+            var authorTypeItems = author.Select(q => new SelectListItem
+            {
+                Text = $"{q.Firstname} {q.Lastname}",
+                Value = q.Id.ToString()
+            });
+
+            var publisherTypeItems = publisher.Select(q => new SelectListItem
+            {
+                Text = $"{q.Firstname} {q.Lastname}",
+
+                Value = q.Id.ToString()
+            });
+
+            var GenreTypeItems = genre.Select(q => new SelectListItem
+            {
+                Text = $"{q.Name}",
+
+                Value = q.Id.ToString()
+            });
+
+            var catalogtypeTypeItems = catalogtype.Select(q => new SelectListItem
+            {
+                Text = $"{q.Name}",
+
+                Value = q.Id.ToString()
+            });
+
+
+
+            model.Publishers = publisherTypeItems;
+            model.Authors = authorTypeItems;
+            model.Genres = GenreTypeItems;
+            model.CatalogTypes = catalogtypeTypeItems;
+            
+
             return View(model);
         }
 
