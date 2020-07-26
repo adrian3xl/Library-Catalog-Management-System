@@ -8,6 +8,7 @@ using Library_Management_System.Data;
 using Library_Management_System.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library_Management_System.Controllers
@@ -17,12 +18,13 @@ namespace Library_Management_System.Controllers
     {
         private readonly ILibraryDisposalRepository _repo;
         private readonly IMapper _mapper;
-
-        public LibraryDisposalController(ILibraryDisposalRepository repo, IMapper mapper)
+        private readonly UserManager<LibraryEmployee> _userManager;
+        public LibraryDisposalController(ILibraryDisposalRepository repo, IMapper mapper, UserManager<LibraryEmployee> userManager)
         {
 
             _repo = repo;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         // GET: LibraryDisposalController
@@ -48,7 +50,16 @@ namespace Library_Management_System.Controllers
         // GET: LibraryDisposalController/Create
         public ActionResult Create()
         {
-            return View();
+
+            var libraryEmployee = _userManager.GetUserAsync(User).Result;
+
+            var model = new LibraryDisposalVM
+            {
+                LibraryEmployeeId = libraryEmployee.Id
+
+            };
+
+            return View(model);
         }
 
         // POST: LibraryDisposalController/Create
@@ -62,7 +73,6 @@ namespace Library_Management_System.Controllers
                 {
                     return View(model);
                 }
-
 
 
                 var LibraryDisposals = _mapper.Map<LibraryDisposal>(model);
@@ -95,6 +105,11 @@ namespace Library_Management_System.Controllers
             }
             var LibraryDisposal = _repo.FindById(id);
             var model = _mapper.Map<LibraryDisposalVM>(LibraryDisposal);
+
+            var libraryEmployee = _userManager.GetUserAsync(User).Result;
+
+            model.LibraryEmployeeId = libraryEmployee.Id;
+
             return View(model);
         }
 

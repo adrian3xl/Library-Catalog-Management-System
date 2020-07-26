@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library_Management_System.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,7 +11,14 @@ namespace Library_Management_System.Models
     {
         public int Id { get; set; }
 
-        
+
+        public LibraryEmployee LibraryEmployee { get; set; }
+        [Display(Name = " Library Employee / System user")]
+       
+         public string LibraryEmployeeId { get; set; }
+
+
+
         [Display(Name = "Disposal Code")]
         [Required]
         public string DisposalCode { get; set; }

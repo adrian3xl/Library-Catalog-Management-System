@@ -47,12 +47,16 @@ namespace Library_Management_System
             services.AddAutoMapper(typeof(Maps));
 
             services.AddDefaultIdentity<IdentityUser>()
+            .AddRoles<IdentityRole>()
+            .AddEntityFrameworkStores<ApplicationDbContext>();
 
-                    .AddRoles<IdentityRole>()
-
-
-
+            services.AddIdentityCore<LibraryEmployee>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
