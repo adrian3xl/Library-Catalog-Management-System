@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<Library_Management_System.Models.LibraryEmployeeVM>
 
 @{
-    ViewData["Title"] = "LibraryEmployee";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Employees</h1>
+<h1>Library Staff User Listing</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<table id="tblData" class="table">
     <thead>
         <tr>
             <th>
@@ -24,11 +21,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.StaffIdentificationCode)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Firstname)
@@ -43,11 +43,21 @@
                 @Html.DisplayFor(modelItem => item.StaffIdentificationCode)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.Email)
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
+@section Scripts{
+
+    <script>
+
+        $(document).ready(function () {
+            $('#tblData').DataTable();
+        });
+
+    </script>
+
+
+}

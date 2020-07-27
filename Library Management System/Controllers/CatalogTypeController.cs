@@ -94,7 +94,7 @@ namespace Library_Management_System.Controllers
                 return NotFound();
             }
             var Catalog = _repo.FindById(id);
-            var model = _mapper.Map<CatalogVM>(Catalog);
+            var model = _mapper.Map<CatalogTypeVM>(Catalog);
             return View(model);
         }
 

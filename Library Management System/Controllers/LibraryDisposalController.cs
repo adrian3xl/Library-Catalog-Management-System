@@ -19,12 +19,14 @@ namespace Library_Management_System.Controllers
         private readonly ILibraryDisposalRepository _repo;
         private readonly IMapper _mapper;
         private readonly UserManager<LibraryEmployee> _userManager;
-        public LibraryDisposalController(ILibraryDisposalRepository repo, IMapper mapper, UserManager<LibraryEmployee> userManager)
+        private readonly UserManager<IdentityUser> _userManager1;
+        public LibraryDisposalController(ILibraryDisposalRepository repo, IMapper mapper, UserManager<LibraryEmployee> userManager, UserManager<IdentityUser> userManager1)
         {
 
             _repo = repo;
             _mapper = mapper;
             _userManager = userManager;
+            _userManager1 = userManager1;
         }
 
         // GET: LibraryDisposalController
@@ -68,8 +70,10 @@ namespace Library_Management_System.Controllers
                 }
 
                 var libraryEmployee = _userManager.GetUserAsync(User).Result;
+                var Admin = _userManager1.GetUserAsync(User).Result;
 
                 model.LibraryEmployeeId = libraryEmployee.Id;
+                model.LibraryEmployeeId = Admin.Id;
 
           
 
@@ -106,9 +110,12 @@ namespace Library_Management_System.Controllers
             var model = _mapper.Map<LibraryDisposalVM>(LibraryDisposal);
 
             var libraryEmployee = _userManager.GetUserAsync(User).Result;
+            var Admin = _userManager1.GetUserAsync(User).Result;
+           
+          
 
-            model.LibraryEmployeeId = libraryEmployee.Id;
-
+            //  model.LibraryEmployeeId = libraryEmployee.Id;
+             model.LibraryEmployeeId = Admin.Id;
             return View(model);
         }
 

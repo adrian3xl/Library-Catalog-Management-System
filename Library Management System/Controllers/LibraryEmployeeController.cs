@@ -16,13 +16,15 @@ namespace Library_Management_System.Controllers
     {
         private readonly ILibraryEmployeeRepository _repo;
         private readonly IMapper _mapper;
-        private readonly UserManager<LibraryEmployee> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<LibraryEmployee> _userManager1;
 
-        public LibraryEmployeeController(ILibraryEmployeeRepository repo, IMapper mapper, UserManager<LibraryEmployee> userManager)
+        public LibraryEmployeeController(ILibraryEmployeeRepository repo, IMapper mapper, UserManager<IdentityUser> userManager,UserManager<LibraryEmployee> userManager1)
         {
             _repo = repo;
             _mapper = mapper;
             _userManager = userManager;
+            _userManager1 = userManager1;
         }
 
 
@@ -66,11 +68,15 @@ namespace Library_Management_System.Controllers
                 {
                     return View(model);
                 }
-            
+
+                var Admin = _userManager.GetUserAsync(User).Result;
+              //  var emp= _userManager1.GetUserAsync(User).Result;
+                model.Id=Admin.Id;
+                //model.i=emp.Id;
 
                 var libraryEmployee = _mapper.Map<LibraryEmployee>(model);
                 var isSucess = _repo.Create(libraryEmployee);
-
+              
                 if (!isSucess)
                 {
                     ModelState.AddModelError("", "Something went wrong...");
@@ -96,8 +102,16 @@ namespace Library_Management_System.Controllers
             {
                 return NotFound();
             }
+
+            
+
             var libraryEmployee = _repo.FindById(id);
             var model = _mapper.Map<LibraryEmployeeVM>(libraryEmployee);
+            var Admin = _userManager.GetUserAsync(User).Result;
+
+
+            model.Id = Admin.Id;
+
             return View(model);
         }
 
