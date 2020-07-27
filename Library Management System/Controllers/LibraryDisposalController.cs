@@ -51,15 +51,8 @@ namespace Library_Management_System.Controllers
         public ActionResult Create()
         {
 
-            var libraryEmployee = _userManager.GetUserAsync(User).Result;
-
-            var model = new LibraryDisposalVM
-            {
-                LibraryEmployeeId = libraryEmployee.Id
-
-            };
-
-            return View(model);
+          
+            return View();
         }
 
         // POST: LibraryDisposalController/Create
@@ -73,6 +66,12 @@ namespace Library_Management_System.Controllers
                 {
                     return View(model);
                 }
+
+                var libraryEmployee = _userManager.GetUserAsync(User).Result;
+
+                model.LibraryEmployeeId = libraryEmployee.Id;
+
+          
 
 
                 var LibraryDisposals = _mapper.Map<LibraryDisposal>(model);
@@ -124,6 +123,8 @@ namespace Library_Management_System.Controllers
                 {
                     return View(model);
                 }
+
+
                 var LibraryDisposal = _mapper.Map<LibraryDisposal>(model);
                 var isSucess = _repo.Update(LibraryDisposal);
                 if (!isSucess)

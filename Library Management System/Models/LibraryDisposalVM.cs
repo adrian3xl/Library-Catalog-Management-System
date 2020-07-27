@@ -12,7 +12,7 @@ namespace Library_Management_System.Models
         public int Id { get; set; }
 
 
-        public LibraryEmployee LibraryEmployee { get; set; }
+        public LibraryEmployeeVM LibraryEmployee { get; set; }
         [Display(Name = " Library Employee / System user")]
        
          public string LibraryEmployeeId { get; set; }
