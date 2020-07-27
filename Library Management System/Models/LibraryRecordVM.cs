@@ -62,7 +62,7 @@ namespace Library_Management_System.Models
         public string RecievedBy { get; set; }
 
         [Display(Name = "DateRecieved")]
-        [Required]
+       // [Required]
         public DateTime DateRecieved { get; set; }
 
         [Display(Name = "Staff Comment")]
