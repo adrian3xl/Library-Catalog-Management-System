@@ -131,6 +131,13 @@ namespace Library_Management_System.Controllers
                     return View(model);
                 }
 
+                var libraryEmployee = _userManager.GetUserAsync(User).Result;
+                var Admin = _userManager1.GetUserAsync(User).Result;
+
+
+
+                model.LibraryEmployeeId = libraryEmployee.Id;
+                model.LibraryEmployeeId = Admin.Id;
 
                 var LibraryDisposal = _mapper.Map<LibraryDisposal>(model);
                 var isSucess = _repo.Update(LibraryDisposal);
