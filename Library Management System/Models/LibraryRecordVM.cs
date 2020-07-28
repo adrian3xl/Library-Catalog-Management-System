@@ -13,6 +13,7 @@ namespace Library_Management_System.Models
 
         public LibraryEmployeeVM LibraryEmployee { get; set; }
         [Display(Name = " Library Employee / System user")]
+        public string LibraryEmployeeId { get; set; }
 
         public CatalogVM Catalog { get; set; }
         [Display(Name = " Catalog Title")]

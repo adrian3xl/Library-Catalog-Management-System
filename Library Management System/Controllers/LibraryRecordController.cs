@@ -97,6 +97,8 @@ namespace Library_Management_System.Controllers
                 {
                     return View(model);
                 }
+                var libraryEmployee = _userManager.GetUserAsync(User).Result;
+                model.LibraryEmployeeId = libraryEmployee.Id;
 
                 var libraryRecord = _mapper.Map<LibraryRecord>(model);
                 var isSucess = _repo.Create(libraryRecord);
