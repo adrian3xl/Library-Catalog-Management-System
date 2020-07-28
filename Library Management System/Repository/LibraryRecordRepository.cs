@@ -32,14 +32,16 @@ namespace Library_Management_System.Repository
         {
             var LibraryRecords = _db.LibraryRecords
                 .Include(q => q.Catalog)
+                 .Include(q => q.LibraryEmployee)
                 .ToList();
             return LibraryRecords;
         }
-
+        
         public LibraryRecord FindById(int id)
         {
             var LibraryRecords = _db.LibraryRecords
                 .Include(q => q.Catalog)
+                .Include(q => q.LibraryEmployee)
                 .FirstOrDefault( q=> q.Id == id);
             return LibraryRecords;
         }

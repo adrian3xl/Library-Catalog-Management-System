@@ -34,5 +34,9 @@ namespace Library_Management_System.Data
 
         public string  StaffComment { get; set; }
 
+        [ForeignKey("LibraryEmployeeId")]
+        public LibraryEmployee LibraryEmployee { get; set; }
+        public string LibraryEmployeeId { get; set; }
+
     }
 }

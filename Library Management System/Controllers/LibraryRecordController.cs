@@ -8,6 +8,7 @@ using Library_Management_System.Data;
 using Library_Management_System.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -22,15 +23,15 @@ namespace Library_Management_System.Controllers
         private readonly IAuthorRepository _authorRepo;
         private readonly IPublisherRepository _publisherRepo;
         private readonly ICatalogRepository _catalogRepo;
-       // private readonly ICatalogRepository _;
+        private readonly UserManager<LibraryEmployee> _userManager;
 
         private readonly IMapper _mapper;
 
 
         public LibraryRecordController(ILibraryRecordRepository repo, ILibraryEmployeeRepository libraryEmployeeRepo, IPublisherRepository publisherRepo,IAuthorRepository authorRepo
-            , ICatalogRepository catalogRepo, IMapper mapper)
+            , ICatalogRepository catalogRepo, IMapper mapper, UserManager<LibraryEmployee> userManager)
         {
-
+            _userManager = userManager;
             _repo = repo;
             _catalogRepo = catalogRepo;
             _libraryEmployeeRepo = libraryEmployeeRepo;
@@ -80,6 +81,7 @@ namespace Library_Management_System.Controllers
                 Catalogs= catalogTypeItems
             };
             return View(model);
+
         }
 
         // POST: LibraryRecordController/Create

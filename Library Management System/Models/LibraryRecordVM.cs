@@ -11,7 +11,9 @@ namespace Library_Management_System.Models
     {
         public int Id { get; set; }
 
-        
+        public LibraryEmployeeVM LibraryEmployee { get; set; }
+        [Display(Name = " Library Employee / System user")]
+
         public CatalogVM Catalog { get; set; }
         [Display(Name = " Catalog Title")]
         [Required]
