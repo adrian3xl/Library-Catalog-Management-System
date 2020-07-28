@@ -92,6 +92,11 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.StaffComment)
+        </dd> <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LibraryEmployeeId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LibraryEmployee.UserName)
         </dd>
     </dl>
 </div>

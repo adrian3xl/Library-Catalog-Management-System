@@ -129,7 +129,8 @@ namespace Library_Management_System.Controllers
             {
                 return NotFound();
             }
-
+            
+            
             var libraryRecord = _repo.FindById(id);
             var model = _mapper.Map<LibraryRecordVM>(libraryRecord);
             var catalog = _catalogRepo.FindAll();
@@ -157,6 +158,10 @@ namespace Library_Management_System.Controllers
                 {
                     return View(model);
                 }
+               
+                var libraryEmployee = _userManager.GetUserAsync(User).Result;
+                model.LibraryEmployeeId = libraryEmployee.Id;
+
                 var libraryRecord = _mapper.Map<LibraryRecord>(model);
                 var isSucess = _repo.Update(libraryRecord);
                 if (!isSucess)
