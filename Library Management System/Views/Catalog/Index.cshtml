@@ -4,6 +4,7 @@
     ViewData["Title"] = "Index";
 }
 <h1>Catalog Listing</h1>
+
 <p>
     <a asp-action="Create" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create New</a>
 </p>
@@ -13,43 +14,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuthorId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublisherId)
-            </th>
-           
-            <th>
-                @Html.DisplayNameFor(model => model.UniqueCatalogCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublishedDate)
-            </th>
-            
+        
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Author.Firstname)@Html.DisplayFor(modelItem => item.Author.Lastname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Publisher.Firstname)@Html.DisplayFor(modelItem => item.Publisher.Lastname)
-                </td>   
-                <td>
-                    @Html.DisplayFor(modelItem => item.UniqueCatalogCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PublishedDate)
-                </td>
-               
+                
                 <td>
                     <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                     <a asp-action="Details" class="btn btn-secondary" asp-route-id="@item.Id"><i class="fa fa-book" aria-hidden="true"></i></a>
