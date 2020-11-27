@@ -11,9 +11,9 @@ namespace Library_Management_System.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        [Display(Name = "Title")]
         
+        [Display(Name = "Title")]
+        [Required]
         public string Title { get; set; }
 
 
